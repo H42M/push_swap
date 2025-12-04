@@ -6,7 +6,7 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 00:12:23 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 13:50:59 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 14:29:31 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,14 @@ static int	input_check(char *av)
 t_list	*parse_input(int ac, char **av)
 {
 	t_ope	*s_ope;
-	t_stack	*stack_a;
+	t_list	*stack_a;
 	int		i;
 	char	**tab;
 
 	i = 1;
+	s_ope = malloc(sizeof(t_ope));
+	if (!s_ope)
+		return (NULL);
 	while (i < ac)
 	{
 		if (av[i][0] == '-' && av[i][1] == '-')
