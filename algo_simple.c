@@ -55,12 +55,9 @@ int	ft_min_index(t_list *stack)
 
 void	ft_min_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	t_list	*tmp;
-
-	tmp = stack_a->top;
 	if (stack_a->size <= 2)
 	{
-		if (!lst_is_sorted(stack_a))
+		if (!lst_is_sorted(stack_a->top))
 			swap(stack_a, stack_b, 0, NULL);
 	}
 	else if (stack_a->size >= 3)

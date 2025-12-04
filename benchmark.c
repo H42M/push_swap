@@ -16,6 +16,7 @@
 #include "operations.h"
 #include "list.h"
 #include "stack.h"
+#include "printf/ft_printf.h"
 
 /*
 ** Benchmark Output - Display performance metrics when --bench flag is used
