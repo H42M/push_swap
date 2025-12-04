@@ -6,7 +6,7 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 12:37:49 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 15:12:35 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 18:39:18 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,27 @@
 #include "list.h"
 #include "stack.h"
 
-static void	init_flags(t_ope *s_ope)
+void	init_ope(t_ope *ope)
+{
+	ope->count_sa = 0;
+	ope->count_sb = 0;
+	ope->count_ss = 0;
+	ope->count_pa = 0;
+	ope->count_pb = 0;
+	ope->count_ra = 0;
+	ope->count_rb = 0;
+	ope->count_rr = 0;
+	ope->count_rra = 0;
+	ope->count_rrb = 0;
+	ope->count_rrr = 0;
+	ope->simple = 0;
+	ope->complex = 0;
+	ope->medium = 0;
+	ope->adaptive = 0;
+	ope->bench = 0;
+}
+
+void	init_flags(t_ope *s_ope)
 {
 	s_ope->simple = 0;
 	s_ope->medium = 0;
@@ -44,8 +64,5 @@ static void	process_flags(char *av, t_ope *s_ope)
 
 void	flag_check(char *av, t_ope *s_ope)
 {
-	init_flags(s_ope);
 	process_flags(av, s_ope);
-	if (s_ope->adaptive + s_ope->simple + s_ope->medium + s_ope->complex > 1)
-		error_handler();
 }

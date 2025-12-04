@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epetrill <epetrill@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 17:08:26 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/03 10:39:01 by epetrill         ###   ########.fr       */
+/*   Updated: 2025/12/04 18:32:51 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,6 @@
 #include "operations.h"
 #include "list.h"
 #include "stack.h"
-
-t_list	*init_list(char **tab)
-{
-	t_list	*stack;
-	int		i;
-	int		nbr;
-
-	i = 0;
-	while (tab[i])
-	{
-		nbr = ft_atol(tab[i]);
-		ft_lstadd_back(&stack, ft_lstnew(nbr));
-		i++;
-	}
-	return (stack);
-}
 
 int	duplicates_check(t_list *stack)
 {

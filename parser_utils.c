@@ -6,7 +6,7 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 15:34:56 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 15:11:08 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:13:34 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ int	ft_atol(const char *nptr)
 	sign = 1;
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;
-	if (nptr[i] == '+' && nptr[i + 1] != '-')
-		i++;
 	if (nptr[i] == '-')
 	{
 		sign = -1;
 		i++;
 	}
+	else if (nptr[i] == '+')
+		i++;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		result = result * 10 + (nptr[i] - '0');

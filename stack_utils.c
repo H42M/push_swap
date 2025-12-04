@@ -6,7 +6,7 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:00:00 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 15:09:12 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 18:34:28 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,14 @@
 ** Additional stack-specific helpers as needed
 */
 
-t_stack	*init_stack(char **tab)
+t_stack	*init_stack(t_list **numbers, int count)
 {
 	t_stack	*stack;
-	t_list	*list;
-
-	list = init_list(tab);
-	if (!list)
-		return (NULL);
+	
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
-	stack->top = list;
-	stack->bottom = ft_lstlast(list);
-	stack->size = ft_lstsize(list);
+	stack->top = *numbers;
+	stack->size = count;
 	return (stack);
 }
