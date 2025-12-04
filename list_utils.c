@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_utils2.c                                       :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 02:09:11 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/11/26 02:09:53 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/01 13:08:02 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,19 @@ int	ft_lstsize(t_list *lst)
 		count++;
 	}
 	return (count);
+}
+
+t_list	*ft_lstprevious(t_list *lst)
+{
+	t_list	*tmp;
+	t_list	*previous;
+
+	if (!lst)
+		return (NULL);
+	tmp = ft_lstlast(lst);
+	previous = lst;
+	while (previous->next != tmp)
+		previous = previous->next;
+	previous->next = NULL;
+	return (previous);
 }

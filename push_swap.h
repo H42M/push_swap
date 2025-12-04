@@ -3,19 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epetrill <epetrill@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 01:55:58 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/11/26 07:58:38 by epetrill         ###   ########.fr       */
+/*   Updated: 2025/12/04 13:49:21 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
 # include <stdlib.h>
 # include <unistd.h>
-# include "ft_printf.h"
+# include <limits.h>
+# include "printf/ft_printf.h"
+# include "parser.h"
+# include "algorithm.h"
+# include "operations.h"
+# include "list.h"
+# include "stack.h"
+
+// utils/string_utils.c
+size_t	ft_strlen(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
+
+// utils/ft_split.c
+char	**ft_split(char const *s, char c);
+
+typedef struct s_stack
+{
+	t_list	*top;
+	t_list	*bottom;
+	int		size;	
+}	t_stack;
 
 typedef struct s_list
 {
@@ -23,26 +44,24 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-typedef struct s_stacks
+typedef struct s_ope
 {
-	t_list	**stack_a;
-	t_list	**stack_b;
-}	t_stacks;
-
-// lst_utils.c
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_back(t_list **lst, t_list *n);
-void	ft_lstadd_front(t_list **lst, t_list *n);
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-
-// lst_utils2.c
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstlast(t_list *lst);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
-// push_swap_utils.c
-int		ft_atoi(const char *nptr);
+	int	count_sa;
+	int	count_sb;
+	int	count_ss;
+	int	count_pa;
+	int	count_pb;
+	int	count_ra;
+	int	count_rb;
+	int	count_rr;
+	int	count_rra;
+	int	count_rrb;
+	int	count_rrr;
+	int	simple;
+	int	complex;
+	int	medium;
+	int	adaptive;
+	int	bench;
+}	t_ope;
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algo_utils.c                                    :+:      :+:    :+:   */
+/*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epetrill <epetrill@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 03:50:09 by epetrill          #+#    #+#             */
-/*   Updated: 2025/11/27 03:53:17 by epetrill         ###   ########.fr       */
+/*   Updated: 2025/12/03 09:04:45 by epetrill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,39 @@ int	lst_is_sorted(t_list *stack)
 		stack = stack->next;
 	}
 	return (1);
+}
+
+float	calculate_disorder(t_list *stack)
+{
+	int		mistakes;
+	int		total_pairs;
+	t_list	*next;
+
+	mistakes = 0;
+	total_pairs = 0;
+	while (stack)
+	{
+		next = stack->next;
+		while (next)
+		{
+			if (stack->content > next->content)
+				mistakes++;
+			total_pairs++;
+			next = next->next;
+		}
+		stack = stack->next;
+	}
+	if (total_pairs == 0)
+		return (100.00);
+	return ((float)mistakes / (float)total_pairs);
+}
+
+int	ft_isqrt(int n)
+{
+	int	i;
+
+	i = 1;
+	while (i * i <= n)
+		i++;
+	return (i);
 }

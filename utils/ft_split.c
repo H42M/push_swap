@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: epetrill <epetrill@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:01:47 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/11/27 00:23:38 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/03 07:49:04 by epetrill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "../push_swap.h"
 
 static int	count_words(char const *s, char c)
 {

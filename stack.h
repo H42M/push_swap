@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 01:55:38 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/02 16:56:57 by hgeorges         ###   ########.fr       */
+/*   Created: 2025/12/04 13:30:00 by hgeorges          #+#    #+#             */
+/*   Updated: 2025/12/04 13:30:00 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef STACK_H
+# define STACK_H
 
-int	main(int argc, char **argv)
-{
-	int		lst_index;
-	t_list	*temp;
-	t_list	**list_ptr;
+# include "push_swap.h"
 
-	if (argc < 2)
-		return (0);
-	*list_ptr = NULL;
-	parse_input(argc, argv);
-}
+// stack_init.c
+t_list	*init_list(char **tab);
+int		duplicates_check(t_list *stack);
+
+// stack_utils.c
+t_stack	*init_stack(char **tab);
+
+// error.c
+void	free_stack(t_stack *stack);
+void	error_handler(void);
+
+#endif

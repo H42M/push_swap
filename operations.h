@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   operations.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 01:55:38 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/02 16:56:57 by hgeorges         ###   ########.fr       */
+/*   Created: 2025/12/04 13:30:00 by hgeorges          #+#    #+#             */
+/*   Updated: 2025/12/04 13:30:00 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef OPERATIONS_H
+# define OPERATIONS_H
 
-int	main(int argc, char **argv)
-{
-	int		lst_index;
-	t_list	*temp;
-	t_list	**list_ptr;
+# include "push_swap.h"
 
-	if (argc < 2)
-		return (0);
-	*list_ptr = NULL;
-	parse_input(argc, argv);
-}
+// operations.c
+void	swap(t_stack *stack_1, t_stack *stack_2, int flag, t_ope *ope);
+void	push(t_stack *stack_1, t_stack *stack_2, int flag, t_ope *ope);
+void	rotate(t_stack *stack_1, t_stack *stack_2, int flag, t_ope *ope);
+void	r_rotate(t_stack *stack_1, t_stack *stack_2, int flag, t_ope *ope);
+
+#endif
