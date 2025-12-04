@@ -11,6 +11,11 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parser.h"
+#include "algorithm.h"
+#include "operations.h"
+#include "list.h"
+#include "stack.h"
 
 int	ft_is_stack_min(t_list *stack)
 {

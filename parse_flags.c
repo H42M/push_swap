@@ -6,11 +6,16 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 12:37:49 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/02 18:30:10 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:12:35 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parser.h"
+#include "algorithm.h"
+#include "operations.h"
+#include "list.h"
+#include "stack.h"
 
 static void	init_flags(t_ope *s_ope)
 {
@@ -37,11 +42,8 @@ static void	process_flags(char *av, t_ope *s_ope)
 		error_handler();
 }
 
-void	flag_check(int ac, char *av, t_ope *s_ope)
+void	flag_check(char *av, t_ope *s_ope)
 {
-	int	i;
-
-	i = 1;
 	init_flags(s_ope);
 	process_flags(av, s_ope);
 	if (s_ope->adaptive + s_ope->simple + s_ope->medium + s_ope->complex > 1)

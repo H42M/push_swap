@@ -3,16 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   list_basic.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epetrill <epetrill@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 02:05:55 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/03 07:49:14 by epetrill         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:27:06 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parser.h"
+#include "algorithm.h"
+#include "operations.h"
+#include "list.h"
+#include "stack.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*s_list;
 
@@ -48,7 +53,7 @@ void	ft_lstadd_front(t_list **lst, t_list *n)
 	}
 }
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(int))
 {
 	t_list	*temp;
 
@@ -64,7 +69,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	*lst = NULL;
 }
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(int))
 {
 	if (!lst || !del)
 		return ;

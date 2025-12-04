@@ -53,7 +53,7 @@ void	parse_format2(va_list args, char c, int *count, int fd)
 		ft_print_float((double)va_arg(args, double), count, fd);
 }
 
-int	ft_printf(const char *str, int fd, ...)
+int	ft_printf(int fd, const char *str, ...)
 {
 	va_list	args;
 	size_t	i;

@@ -11,6 +11,11 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parser.h"
+#include "algorithm.h"
+#include "operations.h"
+#include "list.h"
+#include "stack.h"
 
 int	lst_is_sorted(t_list *stack)
 {

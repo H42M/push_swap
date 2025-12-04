@@ -6,7 +6,7 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:30:00 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 13:46:57 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 14:26:49 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,24 @@ size_t	ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
+}
+
+char	*ft_strdup(const char *s)
+{
+	int		i;
+	char	*dup;
+
+	i = 0;
+	dup = malloc (sizeof(char) * (ft_strlen(s) + 1));
+	if (!dup)
+		return (NULL);
+	while (s[i])
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = 0;
+	return (dup);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

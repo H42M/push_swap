@@ -6,13 +6,18 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 02:09:11 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/01 13:08:02 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:26:25 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parser.h"
+#include "algorithm.h"
+#include "operations.h"
+#include "list.h"
+#include "stack.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(int))
 {
 	while (lst)
 	{
@@ -30,10 +35,10 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int))
 {
 	t_list	*new_list;
-	t_list	*new_content;
+	int		new_content;
 	t_list	*new_node;
 
 	if (!lst || !f || !del)

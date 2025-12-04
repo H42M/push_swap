@@ -11,6 +11,11 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parser.h"
+#include "algorithm.h"
+#include "operations.h"
+#include "list.h"
+#include "stack.h"
 
 /*
 ** Error Handling & Memory Cleanup
@@ -38,6 +43,6 @@ void	free_stack(t_stack *stack)
 
 void	error_handler(void)
 {
-	ft_printf("Error\n", 2);
+	ft_printf(2, "Error\n");
 	exit(1);
 }

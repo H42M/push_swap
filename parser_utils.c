@@ -6,11 +6,17 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 15:34:56 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/02 17:21:16 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:11:08 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parser.h"
+#include "algorithm.h"
+#include "operations.h"
+#include "list.h"
+#include "stack.h"
+#include "stack.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

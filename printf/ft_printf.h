@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 // ft_printf.c
-int		ft_printf(const char *str, int fd, ...);
+int		ft_printf(int fd, const char *str, ...);
 void	parse_format(va_list args, char c, int *count, int fd);
 void	parse_format2(va_list args, char c, int *count, int fd);
 // ft_printf_utils.c

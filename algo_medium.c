@@ -11,6 +11,11 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parser.h"
+#include "algorithm.h"
+#include "operations.h"
+#include "list.h"
+#include "stack.h"
 
 /*
 ** Chunk-Based Sorting Algorithm - O(n√n)

@@ -6,11 +6,18 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 00:12:23 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 14:29:31 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:32:42 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parser.h"
+#include "algorithm.h"
+#include "operations.h"
+#include "list.h"
+#include "stack.h"
+#include "parser.h"
+#include "stack.h"
 
 static void	free_tab(char **arr)
 {
@@ -58,31 +65,27 @@ static int	input_check(char *av)
 	return (1);
 }
 
-t_list	*parse_input(int ac, char **av)
+t_list	*parse_input(int ac, char **av, t_ope *s_ope)
 {
-	t_ope	*s_ope;
-	t_list	*stack_a;
+	t_list	*top;
 	int		i;
 	char	**tab;
 
 	i = 1;
-	s_ope = malloc(sizeof(t_ope));
-	if (!s_ope)
-		return (NULL);
 	while (i < ac)
 	{
 		if (av[i][0] == '-' && av[i][1] == '-')
-			flag_check(ac, av[i], s_ope);
+			flag_check(av[i], s_ope);
 		else if (input_check(av[i]))
 		{
 			tab = ft_split(av[i], ' ');
-			stack_a = init_stack(tab);
-			if (!duplicates_check(stack_a))
+			top = init_list(tab);
+			if (!duplicates_check(top))
 				error_handler();
 		}
 		else
 			error_handler();
 		i++;
 	}
-	return (stack_a);
+	return (top);
 }
