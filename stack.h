@@ -17,6 +17,7 @@
 
 // stack_init.c
 int		duplicates_check(t_list *stack);
+int		add_to_stack(t_list **numbers, char **tab, int *count);
 
 // stack_utils.c
 t_stack	*init_stack(t_list **numbers, int count);

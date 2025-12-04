@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 00:15:24 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 18:27:38 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 23:57:25 by Hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 // parse_flags.c
 void	flag_check(char *av, t_ope *t_ope);
-void	init_ope(t_ope *ope);
+t_ope *init_ope(void);
 void	init_flags(t_ope *s_ope);
 
 // parser.c
@@ -27,6 +27,6 @@ t_stack	*parse_input(int ac, char **av, t_ope *s_ope);
 
 // parser_utils.c
 int		ft_strcmp(const char *s1, const char *s2);
-int		ft_atol(const char *nptr);
+long	ft_atol(const char *nptr);
 
 #endif

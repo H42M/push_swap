@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epetrill <epetrill@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 12:40:33 by epetrill          #+#    #+#             */
-/*   Updated: 2025/12/03 09:05:01 by epetrill         ###   ########.fr       */
+/*   Updated: 2025/12/04 21:19:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int		ft_isqrt(int n);
 
 
 // algo_simple.c
-void	ft_min_sort(t_stack *stack_a, t_stack *stack_b);
+void	ft_min_sort(t_stack *stack_a, t_stack *stack_b,  t_ope *ope);
 
 // algo_medium.c
-void	ft_chunk_sort(t_stack *stack_a, t_stack *stack_b);
+void	ft_chunk_sort(t_stack *stack_a, t_stack *stack_b, t_ope *ope);
 
 // algo_complex.c
 void	ft_complex_sort(t_stack *a, t_stack *b, t_ope *ope);

@@ -1,0 +1,11 @@
+en.subjectPS.pdf
+
+*.txt
+
+*.o
+
+*.sh
+
+.vscode/
+
+.DS_Store

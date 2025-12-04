@@ -29,9 +29,9 @@
 void	execute_strategy(t_stack *a, t_stack *b, t_ope *ope)
 {
 	if (ope->simple)
-		ft_min_sort(a, b);
+		ft_min_sort(a, b, ope);
 	else if (ope->medium)
-		ft_chunk_sort(a, b);
+		ft_chunk_sort(a, b, ope);
 	else if (ope->complex)
 		ft_complex_sort(a, b, ope);
 	else

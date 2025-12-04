@@ -32,13 +32,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-static void	valid_int_checker(long result)
-{
-	if (result < INT_MIN || result > INT_MAX)
-		error_handler();
-}
-
-int	ft_atol(const char *nptr)
+long	ft_atol(const char *nptr)
 {
 	int		i;
 	long	result;
@@ -61,7 +55,5 @@ int	ft_atol(const char *nptr)
 		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	result = sign * result;
-	valid_int_checker(result);
-	return ((int)result);
+	return (sign * result);
 }

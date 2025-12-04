@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:00:00 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 18:34:28 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 23:06:46 by Hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,23 @@
 ** Additional stack-specific helpers as needed
 */
 
-t_stack	*init_stack(t_list **numbers, int count)
+
+int	duplicates_check(t_list *stack)
 {
-	t_stack	*stack;
-	
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->top = *numbers;
-	stack->size = count;
-	return (stack);
+	t_list	*current;
+	t_list	*checker;
+
+	current = stack;
+	while (current)
+	{
+		checker = current->next;
+		while (checker)
+		{
+			if (current->content == checker->content)
+				return (0);
+			checker = checker->next;
+		}
+		current = current->next;
+	}
+	return (1);
 }

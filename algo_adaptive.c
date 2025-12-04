@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_adaptive.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:00:00 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 14:00:00 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/04 23:48:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include "operations.h"
 #include "list.h"
 #include "stack.h"
-
+#include "printf/ft_printf.h"
+#include <stdio.h>
 /*
 ** Adaptive Sorting Algorithm - Selects strategy based on disorder metric
 ** disorder < 0.2 → Use O(n) method (nearly sorted optimization)
@@ -30,17 +31,18 @@ void	ft_adaptive_sort(t_stack *a, t_stack *b, t_ope *ope)
 	float	disorder;
 
 	disorder = calculate_disorder(a->top);
+	printf("Adaptive Sort: Disorder = %.2f\n", disorder);
 	if (disorder < 0.2)
 	{
 		// TODO: Implement O(n) nearly-sorted optimization
-		ft_min_sort(a, b);
+		ft_min_sort(a, b, ope);
 	}
 	else if (disorder < 0.5)
 	{
-		ft_chunk_sort(a, b);
+		ft_chunk_sort(a, b, ope);
 	}
 	else
 	{
-		ft_complex_sort(a, b, ope);
+		ft_min_sort(a, b, ope);
 	}
 }
