@@ -16,7 +16,7 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = push_swap.c parser.c parser_utils.c parse_flags.c \
+SRCS = push_swap.c parser.c parser_utils.c parse_flags.c input_validation.c \
        printf/ft_printf.c printf/ft_printf_utils.c \
        utils/ft_split.c utils/string_utils.c \
        list_basic.c list_utils.c stack_init.c stack_utils.c \

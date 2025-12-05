@@ -19,11 +19,16 @@
 
 // parse_flags.c
 void	flag_check(char *av, t_ope *t_ope);
-t_ope *init_ope(void);
+t_ope	*init_ope(void);
 void	init_flags(t_ope *s_ope);
 
 // parser.c
-t_stack	*parse_input(int ac, char **av, t_ope *s_ope);
+t_list	*parse_input(int ac, char **av, t_ope *s_ope);
+
+// input_validation.c
+void	free_tab(char **arr);
+int		str_check(char *av);
+int		input_check(char *av);
 
 // parser_utils.c
 int		ft_strcmp(const char *s1, const char *s2);

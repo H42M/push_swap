@@ -20,7 +20,7 @@
 t_stack	*init_stack(t_list **numbers, int count)
 {
 	t_stack	*stack;
-	
+
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
@@ -29,11 +29,11 @@ t_stack	*init_stack(t_list **numbers, int count)
 	return (stack);
 }
 
-int	add_to_stack(t_list **numbers, char **tab, int *count)
+int	add_to_stack(t_list **numbers, char **tab)
 {
 	t_list	*new;
-	int i;
-	long val;
+	int		i;
+	long	val;
 
 	i = 0;
 	while (tab[i])
@@ -44,7 +44,6 @@ int	add_to_stack(t_list **numbers, char **tab, int *count)
 		new = ft_lstnew((int)val);
 		ft_lstadd_back(numbers, new);
 		i++;
-		(*count)++;
 	}
 	return (1);
 }

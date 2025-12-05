@@ -24,7 +24,6 @@
 ** Additional stack-specific helpers as needed
 */
 
-
 int	duplicates_check(t_list *stack)
 {
 	t_list	*current;
@@ -37,7 +36,9 @@ int	duplicates_check(t_list *stack)
 		while (checker)
 		{
 			if (current->content == checker->content)
+			{
 				return (0);
+			}
 			checker = checker->next;
 		}
 		current = current->next;

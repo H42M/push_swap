@@ -16,11 +16,11 @@
 # include "push_swap.h"
 
 // stack_init.c
-int		duplicates_check(t_list *stack);
-int		add_to_stack(t_list **numbers, char **tab, int *count);
+t_stack	*init_stack(t_list **numbers, int count);
+int		add_to_stack(t_list **numbers, char **tab);
 
 // stack_utils.c
-t_stack	*init_stack(t_list **numbers, int count);
+int		duplicates_check(t_list *stack);
 
 // error.c
 void	free_stack(t_stack *stack);

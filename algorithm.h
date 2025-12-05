@@ -20,9 +20,8 @@ int		lst_is_sorted(t_list *stack);
 float	calculate_disorder(t_list *stack);
 int		ft_isqrt(int n);
 
-
 // algo_simple.c
-void	ft_min_sort(t_stack *stack_a, t_stack *stack_b,  t_ope *ope);
+void	ft_min_sort(t_stack *stack_a, t_stack *stack_b, t_ope *ope);
 
 // algo_medium.c
 void	ft_chunk_sort(t_stack *stack_a, t_stack *stack_b, t_ope *ope);

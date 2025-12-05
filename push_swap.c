@@ -20,13 +20,14 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stack;
+	t_list	*numbers;
 	t_ope	*s_ope;
 	t_list	*current;
+	int		count;
 
 	s_ope = init_ope();
-	stack = parse_input(argc, argv, s_ope);
-	if (!stack)
+	numbers = parse_input(argc, argv, s_ope);
+	if (!numbers)
 		return (1);
 	ft_printf(1, "=== FLAGS STATUS ===\n");
 	ft_printf(1, "simple: %d\n", s_ope->simple);
@@ -34,13 +35,15 @@ int	main(int argc, char **argv)
 	ft_printf(1, "complex: %d\n", s_ope->complex);
 	ft_printf(1, "adaptive: %d\n", s_ope->adaptive);
 	ft_printf(1, "bench: %d\n", s_ope->bench);
-	ft_printf(1, "\n=== PARSED %d NUMBERS ===\n", stack->size);
-	current = stack->top;
+	count = ft_lstsize(numbers);
+	ft_printf(1, "\n=== PARSED %d NUMBERS ===\n", count);
+	current = numbers;
 	while (current)
 	{
 		ft_printf(1, "%d\n", current->content);
 		current = current->next;
 	}
-	free_stack(stack);
+	ft_lstclear(&numbers, NULL);
+	free(s_ope);
 	return (0);
 }

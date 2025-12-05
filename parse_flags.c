@@ -17,11 +17,11 @@
 #include "list.h"
 #include "stack.h"
 
-t_ope *init_ope(void)
+t_ope	*init_ope(void)
 {
 	t_ope	*ope;
-	
-    ope = malloc(sizeof(t_ope));
+
+	ope = malloc(sizeof(t_ope));
 	if (!ope)
 		return (NULL);
 	ope->count_sa = 0;
@@ -56,7 +56,10 @@ static void	process_flags(char *av, t_ope *s_ope)
 	else if (ft_strcmp(av, "--bench") == 0)
 		s_ope->bench = 1;
 	else
+	{
+		free(s_ope);
 		error_handler();
+	}
 }
 
 void	flag_check(char *av, t_ope *s_ope)
