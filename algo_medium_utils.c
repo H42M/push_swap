@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_flags.c                                      :+:      :+:    :+:   */
+/*   algo_medium_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 12:37:49 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/07 19:11:23 by Hugo             ###   ########.fr       */
+/*   Created: 2025/12/07 18:48:29 by Hugo              #+#    #+#             */
+/*   Updated: 2025/12/07 18:55:57 by Hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,36 @@
 #include "list.h"
 #include "stack.h"
 
-
-
-static void	process_flags(char *av, t_ope *s_ope)
+void	ft_find_min_max(t_list *stack, int *min, int *max)
 {
-	if (ft_strcmp(av, "--simple") == 0)
-		s_ope->simple = 1;
-	else if (ft_strcmp(av, "--medium") == 0)
-		s_ope->medium = 1;
-	else if (ft_strcmp(av, "--complex") == 0)
-		s_ope->complex = 1;
-	else if (ft_strcmp(av, "--adaptive") == 0)
-		s_ope->adaptive = 1;
-	else if (ft_strcmp(av, "--bench") == 0)
-		s_ope->bench = 1;
-	else
+	*min = stack->content;
+	*max = stack->content;
+	while (stack)
 	{
-		free(s_ope);
-		error_handler();
+		if (stack->content < *min)
+			*min = stack->content;
+		if (stack->content > *max)
+			*max = stack->content;
+		stack = stack->next;
 	}
 }
 
-void	flag_check(char *av, t_ope *s_ope)
+int	is_in_range(int value, int min, int max)
 {
-	process_flags(av, s_ope);
+	return (value >= min && value <= max);
+}
+
+int	find_in_range(t_list *stack, int min, int max)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		if (is_in_range(stack->content, min, max))
+			return (i);
+		stack = stack->next;
+		i++;
+	}
+	return (-1);
 }

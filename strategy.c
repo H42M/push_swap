@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   strategy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:00:00 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 14:00:00 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/07 21:11:39 by Hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@
 ** --adaptive or default → ft_adaptive_sort() (disorder-based selection)
 */
 
-void	execute_strategy(t_stack *a, t_stack *b, t_ope *ope)
+void	execute_strategy(t_stack *a, t_stack *b, t_ope *ope, float disorder)
 {
 	if (ope->simple)
 		ft_min_sort(a, b, ope);
 	else if (ope->medium)
 		ft_chunk_sort(a, b, ope);
 	else if (ope->complex)
-		ft_complex_sort(a, b, ope);
+		ft_radix_sort(a, b, ope);
 	else
-		ft_adaptive_sort(a, b, ope);
+		ft_adaptive_sort(a, b, ope, disorder);
 }

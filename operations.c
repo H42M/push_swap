@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 07:53:26 by epetrill          #+#    #+#             */
-/*   Updated: 2025/12/04 15:38:56 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/07 23:11:52 by Hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,14 @@ void	rotate(t_stack *stack_1, t_stack *stack_2, int flag, t_ope *ope)
 void	r_rotate(t_stack *stack_1, t_stack *stack_2, int flag, t_ope *ope)
 {
 	t_list	*tmp;
+	t_list	*last;
 
 	if (stack_1->size < 2)
 		return ;
+	last = ft_lstlast(stack_1->top);
 	tmp = ft_lstprevious(stack_1->top);
-	ft_lstadd_front(&(stack_1->top), stack_1->bottom);
+	ft_lstadd_front(&(stack_1->top), last);
 	tmp->next = NULL;
-	stack_1->bottom = tmp;
 	if (flag == 0)
 	{
 		ft_printf(1, "rra\n");

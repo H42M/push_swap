@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:00:00 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 14:00:00 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/07 19:06:32 by Hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@
 #include "list.h"
 #include "stack.h"
 #include "printf/ft_printf.h"
-
-/*
-** Error Handling & Memory Cleanup
-** Centralized error_handler() - prints "Error\n" to stderr and exits
-** free_stack() - frees all nodes in a stack
-** Called on: invalid input, duplicates, out of range, malloc failures
-*/
 
 void	free_stack(t_stack *stack)
 {

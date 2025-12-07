@@ -6,7 +6,7 @@
 /*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:00:00 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 23:06:46 by Hugo             ###   ########.fr       */
+/*   Updated: 2025/12/07 20:30:41 by Hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,6 @@
 #include "operations.h"
 #include "list.h"
 #include "stack.h"
-
-/*
-** Stack Utilities - Helper functions for t_stack operations
-** init_stack() - Creates t_stack wrapper from t_list
-** update_stack_bottom() - Updates bottom pointer after operations
-** Additional stack-specific helpers as needed
-*/
 
 int	duplicates_check(t_list *stack)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 03:48:22 by epetrill          #+#    #+#             */
-/*   Updated: 2025/12/04 23:32:48 by marvin           ###   ########.fr       */
+/*   Updated: 2025/12/07 19:26:18 by Hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	ft_min_index(t_list *stack)
 
 void	ft_min_sort(t_stack *stack_a, t_stack *stack_b, t_ope *ope)
 {
-	ft_printf(1, "Debut du tri\n\n");
 	if (stack_a->size <= 2)
 	{
 		if (!lst_is_sorted(stack_a->top))
@@ -64,7 +63,6 @@ void	ft_min_sort(t_stack *stack_a, t_stack *stack_b, t_ope *ope)
 	}
 	else if (stack_a->size >= 3)
 	{
-		ft_printf(1, "Debut du tri\n\n");
 		while (!lst_is_sorted(stack_a->top))
 		{
 			while (ft_is_stack_min(stack_a->top) == 0)
@@ -74,7 +72,8 @@ void	ft_min_sort(t_stack *stack_a, t_stack *stack_b, t_ope *ope)
 				else if (ft_min_index(stack_a->top) <= stack_a->size / 2)
 					rotate(stack_a, stack_b, 0, ope);
 			}
-			push(stack_a, stack_b, 1, ope);
+			if (!lst_is_sorted(stack_a->top))
+				push(stack_a, stack_b, 1, ope);
 		}
 		while (stack_b->size > 0)
 			push(stack_b, stack_a, 0, ope);

@@ -6,7 +6,7 @@
 /*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 01:55:38 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/05 00:08:49 by Hugo             ###   ########.fr       */
+/*   Updated: 2025/12/07 20:01:33 by Hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,32 +18,45 @@
 #include "stack.h"
 #include "printf/ft_printf.h"
 
+void	ft_print_stack(t_stack *stack, int flag)
+{
+	t_list	*tmp;
+
+	tmp = stack->top;
+	if (flag)
+		ft_printf(1, "Stack a contents:\n");
+	else
+		ft_printf(1, "Stack b contents:\n");
+	while (tmp)
+	{
+		ft_printf(1, "%d\n", tmp->content);
+		tmp = tmp->next;
+	}
+	ft_printf(1, "size = %d", stack->size);
+	ft_printf(1, "\n");
+}
+
 int	main(int argc, char **argv)
 {
-	t_list	*numbers;
-	t_ope	*s_ope;
-	t_list	*current;
-	int		count;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	t_ope	ope;
+	t_list	*list;
+	float	disorder;
 
-	s_ope = init_ope();
-	numbers = parse_input(argc, argv, s_ope);
-	if (!numbers)
-		return (1);
-	ft_printf(1, "=== FLAGS STATUS ===\n");
-	ft_printf(1, "simple: %d\n", s_ope->simple);
-	ft_printf(1, "medium: %d\n", s_ope->medium);
-	ft_printf(1, "complex: %d\n", s_ope->complex);
-	ft_printf(1, "adaptive: %d\n", s_ope->adaptive);
-	ft_printf(1, "bench: %d\n", s_ope->bench);
-	count = ft_lstsize(numbers);
-	ft_printf(1, "\n=== PARSED %d NUMBERS ===\n", count);
-	current = numbers;
-	while (current)
-	{
-		ft_printf(1, "%d\n", current->content);
-		current = current->next;
-	}
-	ft_lstclear(&numbers, NULL);
-	free(s_ope);
+	init_ope(&ope);
+	list = parse_input(argc, argv, &ope);
+	stack_a = init_stack(list, ft_lstsize(list));
+	stack_b = init_stack(NULL, 0);
+	disorder = calculate_disorder(stack_a->top);
+	if (lst_is_sorted(list))
+		return (0);
+	//ft_print_stack(stack_a, 1);
+	//ft_print_stack(stack_b, 0);
+	execute_strategy(stack_a, stack_b, &ope, disorder);
+	if (ope.bench)
+		ft_print_benchmark(&ope, disorder);
+	//ft_print_stack(stack_a, 1);
+	//ft_print_stack(stack_b, 0);
 	return (0);
 }

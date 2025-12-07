@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 01:55:58 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/04 14:46:16 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:33:00 by Hugo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_list
 typedef struct s_stack
 {
 	t_list	*top;
-	t_list	*bottom;
 	int		size;	
 }	t_stack;
 
