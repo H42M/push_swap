@@ -81,7 +81,7 @@ void	ft_print_float(double n, int *count, int fd)
 	}
 	else
 		ft_print_nbr((long)int_part, count, fd);
-	ft_print_char(',', count, fd);
+	ft_print_char('.', count, fd);
 	if (frac < 10)
 	{
 		ft_print_char('0', count, fd);

@@ -18,7 +18,7 @@
 #include "parser.h"
 #include "stack.h"
 
-static void	process_arg(char *arg, t_list **numbers, t_ope *s_ope)
+static void	process_arg(char *arg, t_list **numbers)
 {
 	char	**tab;
 
@@ -28,7 +28,6 @@ static void	process_arg(char *arg, t_list **numbers, t_ope *s_ope)
 		free_tab(tab);
 		if (*numbers)
 			ft_lstclear(numbers, NULL);
-		free(s_ope);
 		error_handler();
 	}
 	free_tab(tab);
@@ -44,7 +43,6 @@ static void	validate_strategy(t_ope *s_ope, t_list **numbers)
 	{
 		if (*numbers)
 			ft_lstclear(numbers, NULL);
-		free(s_ope);
 		error_handler();
 	}
 	if (strategy_count == 0)
@@ -52,7 +50,6 @@ static void	validate_strategy(t_ope *s_ope, t_list **numbers)
 	if (!duplicates_check(*numbers))
 	{
 		ft_lstclear(numbers, NULL);
-		free(s_ope);
 		error_handler();
 	}
 }
@@ -71,12 +68,11 @@ t_list	*parse_input(int ac, char **av, t_ope *s_ope)
 		if (av[i][0] == '-' && av[i][1] == '-')
 			flag_check(av[i], s_ope);
 		else if (input_check(av[i]))
-			process_arg(av[i], &numbers, s_ope);
+			process_arg(av[i], &numbers);
 		else
 		{
 			if (numbers)
 				ft_lstclear(&numbers, NULL);
-			free(s_ope);
 			error_handler();
 		}
 		i++;

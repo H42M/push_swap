@@ -32,10 +32,7 @@ static void	process_flags(char *av, t_ope *s_ope)
 	else if (ft_strcmp(av, "--bench") == 0)
 		s_ope->bench = 1;
 	else
-	{
-		free(s_ope);
 		error_handler();
-	}
 }
 
 void	flag_check(char *av, t_ope *s_ope)
