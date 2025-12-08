@@ -96,7 +96,29 @@ make re      # Rebuild from scratch
 
 **Disorder calculation:** Counts inversions (pairs where larger element appears before smaller) divided by total pairs.
 
-**Rationale:** Adapts to input characteristics for optimal performance across all scenarios.
+**Threshold Rationale:**
+- **0.2 threshold:** Below 20% disorder indicates the input is nearly sorted. In this regime, simple operations like finding and moving misplaced elements is more efficient than complex algorithms. The overhead of radix sort or chunking would exceed the benefit.
+- **0.5 threshold:** At 50% disorder, the input is significantly scrambled. The O(n log n) radix sort becomes essential as the quadratic cost of simple algorithms becomes prohibitive.
+- **Middle range (0.2-0.5):** Moderate disorder benefits from chunk-based sorting, which balances the overhead of partitioning with improved efficiency over pure insertion methods.
+
+**Complexity Arguments (Push_swap operation model):**
+
+*Low disorder regime (< 0.2):*
+- **Time:** O(n) - For nearly sorted inputs, each element requires at most constant rotations to reach its position. Total operations scale linearly.
+- **Space:** O(1) - Only uses the two stacks provided, no additional data structures.
+- **Operations bound:** ≤ 3n push/rotate operations for inputs with < 20% inversions.
+
+*Medium disorder regime (0.2 ≤ disorder < 0.5):*
+- **Time:** O(n√n) - Dividing into √n chunks means each of n elements is processed across √n partitions. Finding elements in range requires O(√n) operations per element.
+- **Space:** O(1) - Uses only stacks A and B, chunk boundaries calculated on-the-fly.
+- **Operations bound:** ≤ 2n√n operations (n elements × √n chunk processing + 2n push operations).
+
+*High disorder regime (≥ 0.5):*
+- **Time:** O(n log n) - Radix sort examines log₂(n) bit positions, performing n push/rotate operations per bit.
+- **Space:** O(n) - Requires index mapping array to convert values to 0..n-1 range.
+- **Operations bound:** ≤ 2n⌈log₂(n)⌉ operations (n elements × log₂(n) bits × 2 operations per bit).
+
+**Rationale:** Adapts to input characteristics for optimal performance across all scenarios, avoiding worst-case behavior of any single algorithm.
 
 ## Performance Benchmarks
 
@@ -132,7 +154,7 @@ All AI-generated suggestions were reviewed, tested, and validated by both team m
 
 ## Contributors
 
+- **epetrill** - Algorithms implementation, operations, strategy selection, benchmarking, testing.
 - **hgeorges** - Parsing (flags management, input validations, duplicate check), memory management, radix sort.
-- **epetrill** - Algorithm implementation, operations, strategy selection, benchmarking, testing.
 
 Both contributors participated in algorithm design, code review, and debugging throughout the project.

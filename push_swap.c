@@ -6,7 +6,7 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 01:55:38 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/08 12:41:01 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/08 13:58:39 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "stack.h"
 #include "printf/ft_printf.h"
 
-void	ft_print_stack(t_stack *stack, int flag)
+/* void	ft_print_stack(t_stack *stack, int flag)
 {
 	t_list	*tmp;
 
@@ -34,7 +34,7 @@ void	ft_print_stack(t_stack *stack, int flag)
 	}
 	ft_printf(1, "size = %d", stack->size);
 	ft_printf(1, "\n");
-}
+} */
 
 int	main(int argc, char **argv)
 {
@@ -50,9 +50,9 @@ int	main(int argc, char **argv)
 	stack_b = init_stack(NULL, 0);
 	disorder = calculate_disorder(stack_a->top);
 	if (lst_is_sorted(list))
-		return (0);
+		return (free_stack(stack_a), free_stack(stack_b), 0);
 	execute_strategy(stack_a, stack_b, &ope, disorder);
 	if (ope.bench)
 		ft_print_benchmark(&ope, disorder);
-	return (0);
+	return (free_stack(stack_a), free_stack(stack_b), 0);
 }

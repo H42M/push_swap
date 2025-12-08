@@ -6,7 +6,7 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:00:00 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/08 12:28:28 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/08 13:41:29 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,29 @@ static int	find_max_bits(int size)
 	return (max_bits);
 }
 
+static void	mini_radix_sort(t_stack *a, t_stack *b, t_ope *ope, int i)
+{
+	int	j;
+	int	size;
+
+	j = 0;
+	size = a->size;
+	while (j < size)
+	{
+		if ((a->top->content >> i) & 1)
+			rotate(a, b, 0, ope);
+		else
+			push(a, b, 1, ope);
+		j++;
+	}
+	while (b->size > 0)
+		push(b, a, 0, ope);
+}
+
 void	ft_radix_sort(t_stack *a, t_stack *b, t_ope *ope)
 {
 	int	max_bits;
 	int	i;
-	int	j;
 
 	if (lst_is_sorted(a->top))
 		return ;
@@ -44,16 +62,6 @@ void	ft_radix_sort(t_stack *a, t_stack *b, t_ope *ope)
 	i = -1;
 	while (++i < max_bits)
 	{
-		j = 0;
-		while (j < a->size)
-		{
-			if ((a->top->content >> i) & 1)
-				rotate(a, b, 0, ope);
-			else
-				push(a, b, 1, ope);
-			j++;
-		}
-		while (b->size > 0)
-			push(b, a, 0, ope);
+		mini_radix_sort(a, b, ope, i);
 	}
 }
