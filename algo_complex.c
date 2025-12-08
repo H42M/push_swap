@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:00:00 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/07 23:14:26 by Hugo             ###   ########.fr       */
+/*   Updated: 2025/12/08 12:28:28 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,10 @@ void	ft_radix_sort(t_stack *a, t_stack *b, t_ope *ope)
 	int	i;
 	int	j;
 
-	if (lst_is_sorted(a->top) || a->size <= 5)
-	{
-		if (a->size <= 5)
-			ft_min_sort(a, b, ope);
+	if (lst_is_sorted(a->top))
 		return ;
-	}
+	if (a->size <= 5)
+		return (ft_min_sort(a, b, ope));
 	index_mapping(a);
 	max_bits = find_max_bits(a->size);
 	i = -1;

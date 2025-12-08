@@ -132,7 +132,7 @@ All AI-generated suggestions were reviewed, tested, and validated by both team m
 
 ## Contributors
 
-- **hgeorges** - Algorithm implementation, parser, operations
-- **epetrill** - Strategy selection, benchmarking, testing
+- **hgeorges** - Parsing (flags management, input validations, duplicate check), memory management, radix sort.
+- **epetrill** - Algorithm implementation, operations, strategy selection, benchmarking, testing.
 
 Both contributors participated in algorithm design, code review, and debugging throughout the project.

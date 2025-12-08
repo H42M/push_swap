@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 12:37:49 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/07 19:11:23 by Hugo             ###   ########.fr       */
+/*   Updated: 2025/12/08 12:40:43 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #include "operations.h"
 #include "list.h"
 #include "stack.h"
-
-
 
 static void	process_flags(char *av, t_ope *s_ope)
 {

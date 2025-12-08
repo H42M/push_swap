@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 01:55:38 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/07 20:01:33 by Hugo             ###   ########.fr       */
+/*   Updated: 2025/12/08 12:41:01 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,8 @@ int	main(int argc, char **argv)
 	disorder = calculate_disorder(stack_a->top);
 	if (lst_is_sorted(list))
 		return (0);
-	//ft_print_stack(stack_a, 1);
-	//ft_print_stack(stack_b, 0);
 	execute_strategy(stack_a, stack_b, &ope, disorder);
 	if (ope.bench)
 		ft_print_benchmark(&ope, disorder);
-	//ft_print_stack(stack_a, 1);
-	//ft_print_stack(stack_b, 0);
 	return (0);
 }

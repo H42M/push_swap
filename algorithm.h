@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Hugo <Hugo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 12:40:33 by epetrill          #+#    #+#             */
-/*   Updated: 2025/12/07 23:14:17 by Hugo             ###   ########.fr       */
+/*   Updated: 2025/12/08 12:39:58 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	ft_min_sort(t_stack *stack_a, t_stack *stack_b, t_ope *ope);
 
 // algo_medium_utils.c
 void	ft_find_min_max(t_list *stack, int *min, int *max);
-int     is_in_range(int value, int min, int max);
-int     find_in_range(t_list *stack, int min, int max);
+int		is_in_range(int value, int min, int max);
+int		find_in_range(t_list *stack, int min, int max);
 
 // algo_medium.c
 void	ft_chunk_sort(t_stack *stack_a, t_stack *stack_b, t_ope *ope);
