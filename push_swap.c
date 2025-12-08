@@ -6,7 +6,7 @@
 /*   By: hgeorges <hgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 01:55:38 by hgeorges          #+#    #+#             */
-/*   Updated: 2025/12/08 13:58:39 by hgeorges         ###   ########.fr       */
+/*   Updated: 2025/12/08 14:37:26 by hgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,11 @@ int	main(int argc, char **argv)
 	stack_b = init_stack(NULL, 0);
 	disorder = calculate_disorder(stack_a->top);
 	if (lst_is_sorted(list))
+	{
+		if (ope.bench)
+			ft_print_benchmark(&ope, disorder);
 		return (free_stack(stack_a), free_stack(stack_b), 0);
+	}
 	execute_strategy(stack_a, stack_b, &ope, disorder);
 	if (ope.bench)
 		ft_print_benchmark(&ope, disorder);
